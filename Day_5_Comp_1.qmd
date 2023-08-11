@@ -42,7 +42,7 @@ ggplot(data= starwars, aes(x=height, y= mass))+
   geom_point(aes(color=species))
 ```
 
-#### Finding summary statistics 
+#### Finding summary statistics
 
 The operator you use to call an operation on a specific column, you use the \$ sign! Its accessing all the values in the column as a vector.
 
@@ -65,4 +65,12 @@ mean_height
 
 sd_height <- sd(starwars$height, na.rm=TRUE)
 sd_height
+
+# this is a hollistic observation from how far the values tend to be away from mean height
 ```
+
+## In-line reporting using code outputs
+
+Typing values out are not an automated way for values to exist in a report.
+
+The mean height of star wars characters is `r mean_height` cm with a standard deviation of `r sd_height` cm.
