@@ -23,14 +23,46 @@ library(tidyverse)
 look at the first six lines, find the dimensions of starwars, make a histogram of character heights, and make a scatter plot of height vs. weight
 
 ```{r}
+
 head(starwars)
+
+dim(starwars)
+
 tail(starwars)
 
-#making a histogram of character heights
+#making a histogram of character heights, only needs one variable, counts of observation are presented as the bar height
+
 ggplot(data= starwars, aes(x=height))+
-  geom_histogram(color = "blue", fill= "yellow")
+  geom_histogram(color = "blue", fill= "black")
+#  pretty long lower tail, could be negatively skewed
+
 
 #making a scatter plot of height vs. weight
 ggplot(data= starwars, aes(x=height, y= mass))+
-  geom_jitter(aes(color=species))
+  geom_point(aes(color=species))
+```
+
+#### Finding summary statistics 
+
+The operator you use to call an operation on a specific column, you use the \$ sign! Its accessing all the values in the column as a vector.
+
+NA indicates a missing value\*
+
+Use mean() function to find means.
+
+Use sd() function to find standard deviations. (when things are symmetrical, a better representation for a data spread)
+
+```{r}
+mean_height <- mean(starwars$height, na.rm= TRUE)
+
+mean_height
+
+#na.rm can be set to true or false whether the na values should be removed before finding the mean value, setting na.rm removes it, so you set it to true.  
+```
+
+```{r}
+# find and store the standard deviation of character heights
+
+sd_height <- sd(starwars$height, na.rm=TRUE)
+sd_height
 ```
