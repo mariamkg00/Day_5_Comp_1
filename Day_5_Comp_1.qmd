@@ -1,7 +1,36 @@
 ---
 title: "Day 5 Comp Session 1"
-format: html
+format:
+  html:
+    code-fold: true
+    code-summary: "Show me the code!"
 editor: visual
+execute: 
+  echo: true
+  warning: false
 ---
 
 #make a change
+
+#echo controls if whether or not the r code shows up.
+
+```{r}
+library(tidyverse)
+```
+
+## Explore the starwars dataset
+
+look at the first six lines, find the dimensions of starwars, make a histogram of character heights, and make a scatter plot of height vs. weight
+
+```{r}
+head(starwars)
+tail(starwars)
+
+#making a histogram of character heights
+ggplot(data= starwars, aes(x=height))+
+  geom_histogram(color = "blue", fill= "yellow")
+
+#making a scatter plot of height vs. weight
+ggplot(data= starwars, aes(x=height, y= mass))+
+  geom_jitter(aes(color=species))
+```
